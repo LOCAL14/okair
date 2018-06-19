@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- jQuery-CDN引入 -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+    <!-- Bootstrap3-CDN引入 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+
 <body>
+<button id="test">test</button>
+
+<script src="js/api.js"></script>
+<script>
+    $("#test").click(function(){
+        const url="/text.php"
+        const data="{phonenumber:111,password:111}"
+        const callback=request(url,data)
+        console.log(callback)
+    })
+</script>
 
 </body>
+
 </html>
