@@ -10,30 +10,136 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- iconfont -->
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_712901_t6d2fxxkgmj.css">
-    <link rel="stylesheet" href="../../css/main.css">
+    <style>
+    </style>
 </head>
 
 <body>
-    <div class="container">
-            资产分类管理
+<div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+            <label >分类名称：</label>
+            <input class="input-default" style="height: 30px;width: 180px;display: inline">
+            <label style="padding-left: 20px;">上级分类：</label>
+            <select class="form-control" onchange="selectOnchang(this)" style="width: 170px;display: inline">
+                <option>全部</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+            </select>
+        </div>
+        <!--&emsp;-->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <button class="btn btn-primary" style="width: 130px">
+                <span class="glyphicon glyphicon-search" style="padding-right: 10px;"></span>
+                检索Search
+            </button>
+        </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <table class="table  table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>编码值</th>
+                <th>属性值</th>
+                <th>所属类别</th>
+                <th>备注信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>001</td>
+                <td>Rammohan </td>
+                <td>Reddy</td>
+                <td>A+</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Smita</td>
+                <td>Pallod</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Rabindranath</td>
+                <td>Sen</td>
+                <td>A+</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Smita</td>
+                <td>Pallod</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Rabindranath</td>
+                <td>Sen</td>
+                <td>A+</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Smita</td>
+                <td>Pallod</td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td>003</td>
+                <td>Rabindranath</td>
+                <td>Sen</td>
+                <td>A+</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li><a href="#">首页</a></li>
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">上一页</span>
+                    </a>
+                </li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">下一页</span>
+                    </a>
+                </li>
+                <li><a href="#">末页</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
 
 
-    <!-- jQuery -->
-    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
-    <!-- Bootstrap组件 -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Ajax封装 -->
-    <script src="js/api.js"></script>
-    <!-- 页面js -->
-    <script>
-        $("#test").click(function () {
-            const url = "/text.php"
-            const data = "{phonenumber:111,password:111}"
-            const callback = request(url, data)
-            console.log(callback)
-        })
-    </script>
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+<!-- Bootstrap组件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- Ajax封装 -->
+<script src="js/api.js"></script>
+<!-- 页面js -->
+<script>
+    function selectOnchang(obj){
+        //获取被选中的option标签选项
+        alert(obj.selectedIndex);
+    }
+    $("#test").click(function () {
+        const url = "/text.php"
+        const data = "{phonenumber:111,password:111}"
+        const callback = request(url, data)
+        console.log(callback)
+    })
+</script>
 
 </body>
 
