@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>数据字典管理</title>
+    <!-- Bootstrap3 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- iconfont -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_712901_t6d2fxxkgmj.css">
+    <link rel="stylesheet" href="../../css/main.css">
+</head>
+
+<body>
+    <div class="container">
+            数据字典管理
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+    <!-- Bootstrap组件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Ajax封装 -->
+    <script src="js/api.js"></script>
+    <!-- 页面js -->
+    <script>
+        $("#test").click(function () {
+            const url = "/text.php"
+            const data = "{phonenumber:111,password:111}"
+            const callback = request(url, data)
+            console.log(callback)
+        })
+    </script>
+
+</body>
+
+</html>

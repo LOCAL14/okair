@@ -1,0 +1,47 @@
+/* header */
+.header {
+    height:80px;
+}
+
+.title {
+    height:80px;
+}
+
+.title h1,h3 {
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #555653;
+}
+
+.title h3 {
+    margin-left: 5px;
+    color: #7B7F83;
+}
+
+.header-right {
+    height:80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    font-size: 16px;
+}
+
+.time,
+.person {
+    color: #555653;
+}
+
+
+.container > hr {
+    margin-top: 0;
+}
+
+/* content */
+.navigator {
+    width:90%;
+}
+
+.navigator button {
+    padding-left:30px;
+}

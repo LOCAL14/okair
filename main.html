@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>奥凯航空资产管理系统</title>
+    <!-- Bootstrap3 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- iconfont -->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_712901_t6d2fxxkgmj.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- header -->
+        <div class="row header">
+            <div class="col-md-6 title">
+                <h1>奥凯航空</h1>
+                <h3>资产管理系统</h3>
+            </div>
+            <div class="col-md-6 header-right">
+                <span class="time iconfont icon-time-circle">
+                    <i>Hi！今天也要有好心情哟～</i>
+                </span>
+                <span class="person">
+                    <i class="iconfont icon-smile"></i>
+                    欢迎您，王小明
+                </span>
+                <span class="logout">
+                    <button type="button" class="btn btn-danger">
+                        <i class="iconfont icon-logout"></i>
+                        &nbsp注销
+                    </button>
+                </span>
+            </div>
+        </div>
+        <hr>
+
+        <!-- content -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel-group navigator" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#baseinfo">
+                                    <i class="iconfont icon-line"></i>
+                                    <i class="iconfont icon-unorderedlist"></i>
+                                    基础信息管理
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="baseinfo" class="panel-collapse collapse in">
+                            <div class="list-group">
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-right"></i>
+                                    <i class="iconfont icon-book"></i>
+                                    数据字典管理
+                                </button>
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-detail"></i>
+                                    资产分类管理
+                                </button>
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-desktop"></i>
+                                    公司职员管理
+                                </button>
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-user"></i>
+                                    系统用户管理
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#propertyinfo">
+                                    <i class="iconfont icon-line"></i>
+                                    <i class="iconfont icon-accountbook"></i>
+                                    资产信息管理
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="propertyinfo" class="panel-collapse collapse">
+                            <div class="list-group">
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-project"></i>
+                                    普通资产信息
+                                </button>
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-YUAN"></i>
+                                    金融资产信息
+                                </button>
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-dashboard"></i>
+                                    车辆资产管理
+                                </button>
+                                <button type="button" class="list-group-item">
+                                    <i class="iconfont icon-bank"></i>
+                                    不动产管理
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="#">首页</a>
+                        </li>
+                        <li>
+                            <a href="#">基础信息管理</a>
+                        </li>
+                        <li class="active">数据字典管理</li>
+                    </ol>
+                </div>
+                <div class="row">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="html/baseinfo/sysDict.html"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- footer -->
+            <div class="row">
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+    <!-- Bootstrap组件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Ajax封装 -->
+    <script src="js/api.js"></script>
+    <!-- 页面js -->
+    <script>
+        $(document).ready(function () {
+
+            // 页面时间
+            setInterval(function () {
+                $(".time").text(function () {
+                    const date = new Date();
+                    const weekArray = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                    const year = date.getFullYear();
+                    const mouth = date.getMonth();
+                    const day = date.getDate();
+                    const week = date.getDay();
+                    let hour = date.getHours();
+                    let minute = date.getMinutes();
+                    let second = date.getSeconds();
+                    //将时间补齐为两位
+                    if (parseInt(hour) < 10) {
+                        hour = "0" + hour.toString();
+                    }
+                    if (parseInt(minute) < 10) {
+                        minute = "0" + minute.toString();
+                    }
+                    if (parseInt(second) < 10) {
+                        second = "0" + second.toString();
+                    }
+                    const formatDate = "  " + year + "年" + mouth + "月" + day + "日" + " " +
+                        weekArray[week] +
+                        " " +
+                        hour + ":" +
+                        minute + ":" + second;
+                    return formatDate;
+                })
+            }, 1000);
+
+            //navigator
+            
+
+
+        });
+
+
+
+
+
+        $("#test").click(function () {
+            const url = "/text.php";
+            const data = "{phonenumber:111,password:111}";
+            const callback = request(url, data);
+            console.log(callback);
+        })
+    </script>
+
+</body>
+
+</html>
