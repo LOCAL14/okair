@@ -32,7 +32,7 @@
                 <span class="logout">
                     <button type="button" class="btn btn-danger">
                         <i class="iconfont icon-logout"></i>
-                        &nbsp注销
+                        &nbsp;注销
                     </button>
                 </span>
             </div>
@@ -55,20 +55,20 @@
                         </div>
                         <div id="baseinfo" class="panel-collapse collapse in">
                             <div class="list-group">
-                                <button type="button" class="list-group-item">
+                                <button type="button" class="list-group-item" name="html/baseinfo/sysDict.html">
                                     <i class="iconfont icon-right"></i>
                                     <i class="iconfont icon-book"></i>
                                     数据字典管理
                                 </button>
-                                <button type="button" class="list-group-item">
+                                <button type="button" class="list-group-item" name="html/baseinfo/propertyClass.html">
                                     <i class="iconfont icon-detail"></i>
                                     资产分类管理
                                 </button>
-                                <button type="button" class="list-group-item">
+                                <button type="button" class="list-group-item" name="html/baseinfo/manageStaff.html">
                                     <i class="iconfont icon-desktop"></i>
                                     公司职员管理
                                 </button>
-                                <button type="button" class="list-group-item">
+                                <button type="button" class="list-group-item" name="html/baseinfo/manageUser.html">
                                     <i class="iconfont icon-user"></i>
                                     系统用户管理
                                 </button>
@@ -109,20 +109,26 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="row">
+                <div class="row theOl">
                     <ol class="breadcrumb">
                         <li>
                             <a href="#">首页</a>
                         </li>
                         <li>
-                            <a href="#">基础信息管理</a>
+                            <i class="iconfont icon-unorderedlist"></i>
+                            基础信息管理
                         </li>
-                        <li class="active">数据字典管理</li>
+                        <li class="active">
+                            <i class="iconfont icon-book"></i>
+                            数据字典管理
+                        </li>
                     </ol>
                 </div>
+
+
                 <div class="row">
                     <div class="embed-responsive embed-responsive-4by3">
-                        <iframe class="embed-responsive-item" src="html/baseinfo/sysDict.html"></iframe>
+                        <iframe class="embed-responsive-item" src="html/baseinfo/sysDict.html" id="theIframe"></iframe>
                     </div>
                 </div>
             </div>
@@ -135,9 +141,6 @@
     </div>
 
 
-
-
-
     <!-- jQuery -->
     <script src="https://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
     <!-- Bootstrap组件 -->
@@ -146,6 +149,39 @@
     <script src="js/api.js"></script>
     <!-- 页面js -->
     <script>
+        $(document).ready(function () {
+            //界面切换，点击导航栏触发
+            //需要的操作
+            // 1.导航栏右箭头
+            // 2.顶部目录栏目
+            // 3.内容src
+            $(".list-group-item").click(function () {
+                // 1.导航栏右箭头转换
+                var rightHtml = "<i class=\"iconfont icon-right\"></i>";
+                $(".icon-right").remove();
+                $(this).find(".iconfont").after(rightHtml);
+                // 2.顶部目录栏目(逻辑：取到祖父兄弟元素的值，将值赋给顶部目录)
+                //改变文本(逻辑：取出后赋值)
+                var selfVal = $(this).text();
+                var parentVal = $(this).parent(".list-group").parent(".collapse").prev(".panel-heading").children(".panel-title").children("a").text();
+                $(".breadcrumb").children("li").eq(1).text(parentVal);
+                $(".breadcrumb").children("li").eq(2).text(selfVal);
+                //改变图标(逻辑：新建子节点后改变图标classname)
+                var selfVal_HTML = $(this).children(".iconfont").attr('class');
+                var parentVal_HTML = $(this).parent(".list-group").parent(".collapse").prev(".panel-heading").children(".panel-title").children("a").children(".iconfont").eq(1).attr('class');
+                var addHtml = "<i class=\"iconfont icon-book\"></i>";
+                $(".breadcrumb").children("li").eq(1).prepend(addHtml);
+                $(".breadcrumb").children("li").eq(1).find("i").attr("class",parentVal_HTML);
+                $(".breadcrumb").children("li").eq(2).prepend(addHtml);
+                $(".breadcrumb").children("li").eq(2).find("i").attr("class",selfVal_HTML);
+                // 3.内容src(获取src值后填入)
+                var new_src = $(this).attr("name");
+                $("#theIframe").attr("src",new_src);
+                
+                // $("div#div的id").children("ul:eq(0)").children("li:eq(0)").find("a");//div下的第一个ul下的第一个li下的a标签 eq(n);  其中n是从0开始，正整数  第k个n就等(k-1);
+            })
+        });
+
         $(document).ready(function () {
 
             // 页面时间
