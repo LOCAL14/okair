@@ -55,7 +55,7 @@
                         </div>
                         <div id="baseinfo" class="panel-collapse collapse in">
                             <div class="list-group">
-                                <button type="button" class="list-group-item">
+                                <button type="button" class="list-group-item" data-lastpath="0">
                                     <i class="iconfont icon-right"></i>
                                     <i class="iconfont icon-book"></i>
                                     数据字典管理
@@ -144,6 +144,8 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Ajax封装 -->
     <script src="js/api.js"></script>
+    <!-- PWA Path -->
+    <script src="js/path.js"></script>
     <!-- 页面js -->
     <script>
         $(document).ready(function () {
@@ -179,12 +181,22 @@
                 })
             }, 1000);
 
-            //navigator
+            //navigator逻辑
+            $(".navigator button").click(function(data){
+                console.log($(this).text());
+               
+                // const selectedUrl = path[$(this).parent(".panel-heading")][$(this).text()];
+                // console.log(selectedUrl);
+                
+
+
+
+
+            })
             
 
 
         });
-
 
 
 
