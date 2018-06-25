@@ -18,6 +18,7 @@
     <!--logo-->
     <!--<link rel="icon" href="img/logo.png" type="image/x-icon">-->
     <!--<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">-->
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_712901_t6d2fxxkgmj.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/index.js"></script>
     <script src="js/api.js"></script>
@@ -44,9 +45,11 @@
                     <label style = "visibility: hidden; font-size: 50px;">
                         奥凯航1
                     </label>
-                    <label style = "font-weight: bold ; font-family: STSong; font-size: 20px">
-                        2018-6-21    星期四
-                    </label>
+                    <span style = "font-family: STSong; font-size: 25px">
+                        <span class="time iconfont icon-time-circle">
+                            <i>Hi！今天也要有好心情哟～</i>
+                        </span>
+                    </span>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 top"></div>
             </div>
@@ -202,6 +205,38 @@
                 toastr.warning('请输入完整！');
             }
     });
+
+
+    // 页面时间
+    setInterval(function () {
+        $(".time").text(function () {
+            const date = new Date();
+            const weekArray = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            const year = date.getFullYear();
+            const mouth = date.getMonth();
+            const day = date.getDate();
+            const week = date.getDay();
+            let hour = date.getHours();
+            let minute = date.getMinutes();
+            let second = date.getSeconds();
+            //将时间补齐为两位
+            if (parseInt(hour) < 10) {
+                hour = "0" + hour.toString();
+            }
+            if (parseInt(minute) < 10) {
+                minute = "0" + minute.toString();
+            }
+            if (parseInt(second) < 10) {
+                second = "0" + second.toString();
+            }
+            const formatDate = "  " + year + "年" + mouth + "月" + day + "日" + " " +
+                weekArray[week] +
+                " " +
+                hour + ":" +
+                minute + ":" + second;
+            return formatDate;
+        })
+    }, 1000);
 
     // //点击注册
     // $("#toreg").click(function () {
